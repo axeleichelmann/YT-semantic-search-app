@@ -1,0 +1,9 @@
+sentence_transformers
+youtube_transcript_api
+pandas
+numpy
+requests
+fastapi
+fastapi[standard]
+pyarrow
+scikit-learn
