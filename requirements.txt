@@ -1,0 +1,13 @@
+numpy
+pandas
+matplotlib
+sentence_transformers
+scikit-learn
+youtube_transcript_api
+gradio
+fastapi
+fastapi[standard]
+pyarrow
+
+
+
