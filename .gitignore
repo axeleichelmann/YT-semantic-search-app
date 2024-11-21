@@ -1,4 +1,3 @@
 # Ignore secret key files
-my_sk.py
-app/secret_file.py
 data/*
+env/*

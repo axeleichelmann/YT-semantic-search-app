@@ -1,8 +1,8 @@
 import requests
 import json
 from sentence_transformers import SentenceTransformer, util
-from secret_file import yt_api_key
 from youtube_transcript_api import YoutubeTranscriptApi
+import os
 
 import pandas as pd
 import numpy as np
@@ -69,6 +69,7 @@ def getVideoIDs():
 
     # Define the url for the API to use when you make a request
     url = 'https://www.googleapis.com/youtube/v3/search'
+    yt_api_key = os.getenv('YT_API_KEY')
 
     # Initialize page token
     page_token = None
