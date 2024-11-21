@@ -1,7 +1,7 @@
 import requests
 import json
 from sentence_transformers import SentenceTransformer, util
-from youtube_transcript_api import YoutubeTranscriptApi
+from youtube_transcript_api import YouTubeTranscriptApi
 import os
 
 import pandas as pd
