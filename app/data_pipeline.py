@@ -1,4 +1,4 @@
-from functions import getVideoIDs, getVideoTranscripts, cleanData, createTextEmbeddings
+from app.functions import getVideoIDs, getVideoTranscripts, cleanData, createTextEmbeddings
 import time
 import datetime
 
