@@ -20,11 +20,11 @@ on:
             python-version: '3.9'
             cache : 'pip'
         - name: Install dependencies
-          run: pip install -r app_requirements.txt
+          run: pip install -r requirements.txt
         - name: Run data pipeline
           env: 
             YT_API_KEY: ${{ secrets.YT_API_KEY }}
-          run: python data_pipeline.py
+          run: python app/data_pipeline.py
         - name: Check for changes
           id: git-check
           run: | 
