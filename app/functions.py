@@ -96,7 +96,7 @@ def getVideoIDs():
             page_token = 0
 
     # Store data in a Pandas DataFrame
-    pd.DataFrame(video_record_list).to_parquet('data/video-ids.parquet')
+    pd.DataFrame(video_record_list).to_parquet('app/data/video-ids.parquet')
 
 
 
@@ -117,7 +117,7 @@ def extract_text(transcript: list) -> str:
 def getVideoTranscripts():
     
     # Import video ID data
-    df = pd.read_parquet('data/video-ids.parquet')
+    df = pd.read_parquet('app/data/video-ids.parquet')
 
     # Initialize a list to store video captions
     transcript_text_list = []
@@ -137,7 +137,7 @@ def getVideoTranscripts():
 
     df['transcript'] = pd.Series(transcript_text_list)
 
-    df.to_parquet('data/video-transcripts.parquet')
+    df.to_parquet('app/data/video-transcripts.parquet')
 
     
 
@@ -146,7 +146,7 @@ def getVideoTranscripts():
 def cleanData():
     
     # Import video transcript data
-    df = pd.read_parquet('data/video-transcripts.parquet')
+    df = pd.read_parquet('app/data/video-transcripts.parquet')
 
     # List special characters and their replacements
     special_strings = ['&#39;', '&amp;', 'sha ']
@@ -160,7 +160,7 @@ def cleanData():
     # Set datetime column to correct datatype
     df['datetime'] = df.datetime.apply(lambda x : datetime.strptime(x, '%Y-%m-%dT%H:%M:%SZ'))
 
-    df.to_parquet('data/video-transcripts.parquet')
+    df.to_parquet('app/data/video-transcripts.parquet')
 
 
 
@@ -168,7 +168,7 @@ def cleanData():
 def createTextEmbeddings():
 
     # Import video transcript data
-    df = pd.read_parquet('data/video-transcripts.parquet')
+    df = pd.read_parquet('app/data/video-transcripts.parquet')
 
     # Define model to use for embeddings & column(s) to embed
     model_name = "all-MiniLM-L6-v2"
@@ -187,7 +187,7 @@ def createTextEmbeddings():
 
         df = pd.concat([df,df_embedding], axis=1)
 
-    df.to_parquet('data/video-index.parquet')
+    df.to_parquet('app/data/video-index.parquet')
 
 
 
